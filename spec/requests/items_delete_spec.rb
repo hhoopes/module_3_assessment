@@ -11,7 +11,7 @@ RSpec.describe "Items API #index" do
     delete "/api/v1/items/#{item.id}"
 
     expect(response).to be_success
-    # expect(response.status).to eq(204)
+    expect(response.status).to eq(204)
 
     expect(Item.count).to eq(99)
   end

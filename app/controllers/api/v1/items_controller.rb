@@ -19,12 +19,12 @@ module Api
       def destroy
         item = Item.find(params[:id])
         item.destroy
-        head :ok
+        respond_with status: 204
       end
 
       private
         def item_params
-          params.permit(:name, :description, :image_url)
+          params.require("item").permit("name", "description", "image_url")
         end
     end
   end

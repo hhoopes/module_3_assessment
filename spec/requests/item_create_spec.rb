@@ -9,14 +9,16 @@ RSpec.describe "Items API #index" do
     new_params = {item: {
                 name: "This thing",
                 description: "is awesome",
-                item_url: "http://images.here"
+                image_url: "http://images.here"
     }}
 
     post "/api/v1/items", new_params
-    json = JSON.parse(response.body)
+    json = JSON.parse(response.body)["item"]
 
+    expect(Item.count).to eq(11)
     expect(response).to be_success
-    expect(json["name"]).to eq(new_params[:item][:name])
+
+    # expect(json["name"]).to eq(new_params[:item][:name])
     expect(json["description"]).to eq(new_params[:item][:description])
     expect(json["image_url"]).to eq(new_params[:item][:image_url])
   end
