@@ -1,0 +1,15 @@
+<h1>Search Results</h1>
+
+<ul>
+  <% @results.each do |result| %>
+    <li>
+      <h3><%= result.name %></h3>
+      <p><%= result.sku %>
+      <p><%= result.customer_average_review %>
+      <p><%= result.short_description %>
+      <p><%= result.sale_price %>
+      <p><%= image_tag result.image %>
+    </li>
+
+  <% end %>
+</ul>
