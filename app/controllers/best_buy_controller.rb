@@ -3,7 +3,6 @@ class BestBuyController < ApplicationController
   end
 
   def search
-    binding.pry
     @results = Search.get_results(params["query"])
   end
 end
