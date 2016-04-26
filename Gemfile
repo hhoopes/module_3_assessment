@@ -14,6 +14,7 @@ gem "less-rails-bootstrap"
 gem "minitest-rails"
 gem 'active_model_serializers', '0.9.3'
 gem 'figaro'
+gem 'faraday'
 
 group :development do
   gem "spring"
