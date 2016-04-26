@@ -12,7 +12,6 @@ module Api
       end
 
       def create
-        binding.pry
         @item = Item.create(item_params)
         respond_with @item
       end
@@ -25,7 +24,7 @@ module Api
 
       private
         def item_params
-          require(:item).permit(:name, :description, :image_url)
+          params.permit(:name, :description, :image_url)
         end
     end
   end
