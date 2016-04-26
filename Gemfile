@@ -12,6 +12,7 @@ gem "faker"
 gem "therubyracer"
 gem "less-rails-bootstrap"
 gem "minitest-rails"
+gem 'active_model_serializers', '0.9.3'
 
 group :development do
   gem "spring"

@@ -2,7 +2,7 @@ module Api
   module V1
     class ItemsController < ApiController
       def index
-        @items = Items.all
+        @items = Item.all
         respond_with @items
       end
     end
