@@ -15,9 +15,13 @@ gem "minitest-rails"
 
 group :development do
   gem "spring"
+  gem 'web-console', '~> 2.0'
 end
 
 group :development, :test do
   gem "minitest-rails-capybara"
   gem "pry", :require => "pry"
+  gem 'rspec-rails', '~> 3.0'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
