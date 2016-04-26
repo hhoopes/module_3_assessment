@@ -15,7 +15,6 @@ save_and_open_page
         expect(page).to have_content("Customer Average Review")
         expect(page).to have_content("Short Description")
         expect(page).to have_content("Sale Price")
-        expect(page).to have_content("Image")
     end
   end
 
