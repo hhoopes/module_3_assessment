@@ -9,7 +9,7 @@ class Search < OpenStruct
     url = root + item_params + show + page + api_key + formatted
     response = Faraday.get(url)
     all = JSON.parse(response.body)["products"]
-    all.each.map |product|
+    new = all.each.map do  |product|
       Search.new(product)
     end
   end

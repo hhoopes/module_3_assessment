@@ -27,6 +27,5 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'webmock'
   gem 'vcr'
 end

@@ -2,12 +2,12 @@
 
 <ul>
   <% @results.each do |result| %>
-    <li>
+    <li class="results">
       <h3><%= result.name %></h3>
-      <p><%= result.sku %>
-      <p><%= result.customer_average_review %>
-      <p><%= result.short_description %>
-      <p><%= result.sale_price %>
+      <p>SKU: <%= result.sku %>
+      <p>Customer Average Review: <%= result.customer_average_review %>
+      <p>Short Description: <%= result.short_description %>
+      <p>Sale Price: <%= result.sale_price %>
       <p><%= image_tag result.image %>
     </li>
 
