@@ -12,6 +12,9 @@ module Api
       end
 
       def create
+        binding.pry
+        @item = Item.create(item_params)
+        respond_with @item
       end
 
       def destroy
@@ -19,6 +22,11 @@ module Api
         item.destroy
         head :ok
       end
+
+      private
+        def item_params
+          require(:item).permit(:name, :description, :image_url)
+        end
     end
   end
 end

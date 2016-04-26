@@ -2,24 +2,22 @@ require 'rails_helper'
 
 RSpec.describe "Items API #index" do
   it "returns all the items and info except created at and updated at" do
-    100.times do
+    10.times do
       Item.create
     end
 
-    get "/api/v1/items"
+    new_params = {item: {
+                name: "This thing",
+                description: "is awesome",
+                item_url: "http://images.here"
+    }}
 
+    post "/api/v1/items", new_params
     json = JSON.parse(response.body)
 
     expect(response).to be_success
-
-    expect(json["items"].count).to eq(100)
-    item = json["items"].first
-
-    expect(item["id"]).to eq(Item.first.id)
-    expect(item["description"]).to eq(Item.first.description)
-    expect(item["image_url"]).to eq(Item.first.image_url)
-    expect(item["created_at"]).to be_nil
-    expect(item["updated_at"]).to be_nil
-
+    expect(json["name"]).to eq(new_params[:item][:name])
+    expect(json["description"]).to eq(new_params[:item][:description])
+    expect(json["image_url"]).to eq(new_params[:item][:image_url])
   end
 end
