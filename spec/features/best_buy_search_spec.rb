@@ -1,18 +1,21 @@
 require 'rails_helper'
 
-Feature.describe "best buy search" do
+feature "best buy search" do
   scenario "visitor searches on index" do
-    it "returns 15 results and their info"  do
       visit '/'
-
-      fill "search", with: "sennheiser"
-      click "submit"
+save_and_open_page
+      fill_in "query", with: "sennheiser"
+      click_button "Search"
 
       expect(path).to eq(search_path)
       expect(page).to have_selector('li', count: 15)
       all("li").each do |li|
         expect(page).to have_content("SKU")
-      end
+        expect(page).to have_content("Name")
+        expect(page).to have_content("Customer Average Review")
+        expect(page).to have_content("Short Description")
+        expect(page).to have_content("Sale Price")
+        expect(page).to have_content("Image")
     end
   end
 
